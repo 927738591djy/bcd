@@ -1,0 +1,17 @@
+<!--pages/profile/profile.wxml-->
+<view data-weui-theme="{{theme}}">
+  <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button> 
+  <mp-form>
+    <mp-cells>
+      <mp-cell title="昵称">
+        <input type="nickname" model:value="{{value}}" class="weui-input" placeholder="请输入昵称"/>
+      </mp-cell>
+    </mp-cells>
+  </mp-form>
+
+	<view style="position: fixed;bottom: 300rpx;left: 50%;margin-left: -100rpx;">
+		<van-button bindtap="toPhone">跳转到获取手机号</van-button>
+	</view>
+</view>

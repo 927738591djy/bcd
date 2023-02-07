@@ -1,0 +1,88 @@
+<!--pages/cargo/cargo.wxml-->
+<view>
+	<map class="map" :longitude="longitude" :latitude="latitude" markers="{{markers}}" polyline scale="4" include-points enable-zoom>
+		<cover-view wx:if="{{timeDiatanceShow}}" slot="callout">
+			<cover-view class="cover_view" marker-id="0">
+				<cover-view class="blue">距您{{distance}}</cover-view>
+				<cover-view class="white"> 预计到达时间:{{cost}}后</cover-view>
+			</cover-view>
+		</cover-view>
+	</map>
+
+	<view>{{cost}}</view>
+
+	<view class="shifu">
+		<view>{{juli}}</view>
+		<view style="display: flex;justify-content: space-between; align-items: center; margin-bottom: 20rpx;">
+			<view style="display: flex;align-items: center;">
+				<image style="border-radius: 50%;width: 80rpx ;height: 80rpx;margin-right: 20rpx;" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+				<!-- <image style="border-radius: 50%;width: 80rpx ;height: 80rpx;margin-right: 20rpx;" src="{{orderDetail.driverAvator}}" /> -->
+				<view style="font-size: 40rpx;">{{orderDetail.driverName}}</view>
+			</view>
+			<view class="call" bindtap="call">拨打电话</view>
+			<view wx:if="{{evaluateButtonShow}}" class="pingjia_btn" bindtap="pingjiaShow">评价</view>
+		</view>
+		<view>{{statusText}}</view>
+	</view>
+
+	<view bindtap="popup" :close="onClose" style="position: fixed;width: 100%; bottom: 0;">
+		<view class="zongji">
+			<!-- <view class="white_line"></view> -->
+			货物踪迹
+		</view>
+	</view>
+
+	<!-- 货物踪迹弹出层 -->
+	<van-popup round show="{{ show }}" position="bottom" custom-style="height: 60%;" bind:close="onClose">
+		<view class="order">
+			<view>订单号：{{orderDetail.waybillSn}}</view>
+			<view>目的地：{{orderDetail.deliveryAddress}}</view>
+		</view>
+		<view wx:if="{{!timeDiatanceShow}}" style="padding:200rpx 20rpx">您的订单即将开始运输</view>
+		<van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-color="#1296df"></van-steps>
+
+	</van-popup>
+
+	<!-- 评价弹出层内容 -->
+	<van-popup round show="{{ pingjia_show }}" position="bottom" custom-style="height: 70%;" bind:close="onClose">
+		<view style="font-size: 40rpx;font-weight: 600;padding: 40rpx;">您对货车司机{{orderDetail.driverName}}满意吗？</view>
+		<view style="border:2rpx solid #1296df;margin:20rpx;border-radius: 30rpx;">
+			<view style="display: flex;padding: 20rpx;">
+				<image style="border-radius: 50%;width: 100rpx ;height: 100rpx;margin-right: 20rpx;" src="{{orderDetail.driverAvator}}" />
+				<view>
+					<view style="font-size: 40rpx;">{{orderDetail.driverName}}</view>
+					<!-- <view style="font-size: 30rpx;color: #ccc;">假数据预计送达时间</view> -->
+				</view>
+			</view>
+
+			<view style="padding: 20rpx;">运输价格：{{orderDetail.quotationAmount}}元</view>
+			<view style="padding: 20rpx;">订单号：{{orderDetail.waybillSn}}</view>
+			<view style="padding: 20rpx;" wx:if="{{!isAssessSuccess}}">满意度：
+				<van-rate value="{{ evaluateStar }}" color="#ffd21e" bind:change="evaluateChange" />
+			</view>
+
+			<view wx:if="{{!isAssessSuccess}}" style="display: flex;justify-content: space-around;padding: 30rpx;">
+				<view bindtap="onClose" style="border: 2rpx solid #1296df;border-radius: 30rpx; color: #1296df;padding:10rpx 40rpx;">取消</view>
+				<view bindtap="assessCommit" style="background-color: #1296df;border-radius: 30rpx; color: #fff;padding:10rpx 40rpx;">提交</view>
+			</view>
+
+			<view style="display: flex; align-items: center;" wx:if="{{evaluateDetailShow}}">
+				<view style="padding: 20rpx;" >评价详情</view>
+				<van-rate value="{{ star }}" />
+			</view>
+
+			<van-dialog title="确认评价"  bind:confirm="confirmEvaluate" show-cancel-button show="{{ evaluateDialogShow }}" id="van-dialog" />
+
+			<!-- 评价成功 -->
+			<view style="text-align: center;margin:40rpx 0" wx:if="{{isAssessSuccess}}">
+				<image style="width: 50rpx;height: 50rpx;vertical-align: middle; margin-right: 30rpx;" src="../../static/img/dui.png"></image>
+				<text>评价成功 !</text>
+			</view>
+
+
+		</view>
+	</van-popup>
+
+
+
+</view>

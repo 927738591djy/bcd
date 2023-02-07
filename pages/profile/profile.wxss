@@ -1,0 +1,24 @@
+/* pages/profile/profile.wxss */
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+.weui-input{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 0 80rpx;
+	padding: 30rpx 0;
+	border-radius: 30rpx;
+	box-shadow:5rpx 5rpx 5rpx rgba(182, 178, 178,.3);
+}

@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<!-- <view class="logo">
+	<image style="width: 100%;height: 100%;" src="../../static/img/huang.png"></image>
+</view> -->
+<!-- <view class="top-wrapper">
+	<button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+		<image class="avatar" src="{{avatarUrl}}"></image>
+	</button>
+	<input type="nickname" model:value="{{value}}" class="weui-input" placeholder="请输入昵称" />
+</view> -->
+
+<view class="logo">
+	<image style="width: 100%;height: 100%;" src="../../static/img/huang.png"></image>
+  <view>开启授权登录
+  	<button class="authbtn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber"></button>
+  </view>
+</view>
+
+<view bindtap="getUserInfo" class="index_container">
+	<view class="company" wx:if="{{isApprove == 1}}">已入驻
+		<!-- <button wx:if="{{!mobile}}" class="authbtn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber"></button> -->
+	</view>
+  <view class="company" wx:if="{{isApprove == 0}}" data-set="{{consignorCompanyId}}" bindtap="toProcess">
+		<!-- <button wx:if="{{!mobile}}" class="authbtn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber"></button> -->
+		企业入驻
+	</view>
+
+ 
+	<view class="sent" bindtap="tosent">
+		<!-- <button wx:if="{{!mobile}}" class="authbtn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber"></button> -->
+		发起订单
+	</view>
+</view>

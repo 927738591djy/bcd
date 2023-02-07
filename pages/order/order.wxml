@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<image style="width: 300rpx;height: 300rpx;margin-top: 200rpx;" src="../../static/img/huang.png"></image>
+<view class="index_container">
+ <view class="company" data-set="01" bindtap="toOrderList" >我发起的</view>
+ <view class="sent" data-set="02" bindtap="toOrderList">我关联的</view>
+</view>

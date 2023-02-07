@@ -1,0 +1,50 @@
+page{
+	background-color: #ccc;
+}
+.top{
+  /* width: 100%; */
+  height: 400rpx;
+	background-image: linear-gradient(rgb(107, 191, 224), rgb(180, 209, 228));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+  margin:  0 auto;
+  border-radius: 50%;
+}
+.nickName{
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 20rpx;
+}
+.my_box{
+	position: fixed;
+	background-color: #fff;
+	border-radius:10rpx;
+	top: 360rpx;
+	left: 20rpx;
+	width: 90%;
+	border-radius: 40rpx;
+	padding: 20rpx;
+	min-height: 450rpx;
+}
+
+.my_box2{
+	position: fixed;
+	background-color: #fff;
+	border-radius:10rpx;
+	top: 900rpx;
+	left: 20rpx;
+	width: 90%;
+	border-radius: 40rpx;
+	padding:10rpx 20rpx;
+	text-align: center;
+}
+
+.my_box2 .van-cell__title{
+	color: red;
+}

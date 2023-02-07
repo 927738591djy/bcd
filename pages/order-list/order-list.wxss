@@ -1,0 +1,53 @@
+/* pages/process/process.wxss */
+page {
+	background-color: #ccc;
+	padding-bottom: 20rpx;
+}
+.order_box{
+	position: relative;
+	background-color: #fff;
+	border-radius: 30rpx;
+	padding: 20rpx;
+	margin: 20rpx;
+}
+.btn{
+	position: absolute;
+	background-color: #1296df;
+	color:#fff;
+	border-radius: 30rpx;
+	padding:10rpx 20rpx;
+	font-size: 35rpx;
+	right: 20rpx;
+}
+.faqi_order {
+	position: fixed;
+	width: 80vw;
+	left: 50%;
+	bottom: -10rpx;
+	transform: translate(-50%, -50%);
+	background-color:#1296df;
+	/* display: inline-block; */
+	border-radius: 30rpx;
+	text-align: center;
+	padding: 20rpx 0;
+	color: #fff;
+}
+.pingjia_btn{
+	position:absolute;
+	bottom: 20rpx;
+	right: 20rpx;
+	padding: 0rpx 50rpx;
+	border: 2rpx solid #1296df;
+	border-radius: 30rpx;
+	color: #1296df;
+}
+.confirmShou{
+	position: absolute;
+	background-color: #1296df;
+	color:#fff;
+	border-radius: 30rpx;
+	padding:10rpx 20rpx;
+	font-size: 35rpx;
+	right: 20rpx;
+	bottom: 30rpx;
+}

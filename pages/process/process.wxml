@@ -1,0 +1,40 @@
+<!--pages/process/process.wxml-->
+<view>
+	<view class="sent_box">
+		<view class="mark">{{status}}</view>
+		<view class="notice">
+			<view class="notice_blue"></view>
+			企业审核
+		</view>
+		<view class="line"></view>
+		<van-cell-group>
+			<van-field model:value="{{ companyName }}" label="公司名称" placeholder="公司名称" required />
+			<van-field  model:value="{{ companyPhone}}" label="手机号码" placeholder="手机号码" required border="{{false}}" />
+		</van-cell-group>
+	</view>
+
+	<view style="margin-left: 30rpx;">您的企业邀请码为：{{inviteCode}}</view>
+
+
+	<view class="sent_box">
+		<view class="mark">{{status}}</view>
+		<view class="notice">
+			<view class="notice_blue"></view>
+			删除企业关联用户
+		</view>
+		<view class="line"></view>
+
+		<van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" wx:for="{{relationUser}}"  bind:close="onClose">
+			<view class="swiper_user">
+				<image  class="avatar" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+				<view style="margin: 0 30rpx;">{{item.nickName}}</view>
+				<view>{{item.consignorMobile}}</view>
+			</view>
+			<view data-set="{{item.id}}" bindtap="delete" style="color: red; margin:30rpx 0;" slot="right">删除</view>
+		</van-swipe-cell>
+		
+	</view>
+
+	<van-dialog title="确认删除该成员?" bind:confirm="confirmDelete" show-cancel-button show="{{ dialogShow }}" id="van-dialog" />
+	<view class="faqi_order" bindtap="toshenhe">{{statusText}}</view>
+</view>

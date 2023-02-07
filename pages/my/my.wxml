@@ -1,0 +1,34 @@
+<view class="my_container">
+	<view style="position: fixed; right: 40rpx;top: 40rpx;">
+		<image data-set="01" bindtap="toNewsList" style="width: 50rpx;height: 50rpx;margin-right: 30rpx;" src="../../static/img/notice.png"></image>
+		<image data-set="02" bindtap="toNewsList" style="width: 50rpx;height: 50rpx;" src="../../static/img/news.png"></image>
+	</view>
+	<view class="top">
+		<view class="topBox">
+			<image class="avatar" src="{{userInfo.avatar}}"></image>
+			<!-- <image class="avatar" src="https://img.yzcdn.cn/vant/cat.jpeg"></image> -->
+			<view class="nickName">{{userInfo.nickName}}</view>
+		</view>
+	</view>
+
+	<!-- 手机号，税号，公司名字 -->
+	<view class="my_box">
+		<van-cell-group>
+			<van-cell bind:click="toUser" is-link icon="setting-o" data-set="{{userInfo.nickName}}" title="修改资料" />
+			<van-cell bind:click="correct" data-set="{{userInfo.consignorCompanyId}}" is-link icon="setting-o" title="资质审核">
+				<view wx:if="{{userInfo.isCompany}}">去修改</view>
+			</van-cell>
+
+
+
+			<van-cell bind:click="toBindCompany" data-set="{{userInfo.id}}"  is-link icon="setting-o" title="关联企业"/>
+
+			<van-cell bind:click="toInviteCompany" icon="setting-o" title="添加成员手机号" is-link></van-cell>
+		</van-cell-group>
+	</view>
+
+
+	<view bindtap="logout" class="my_box2">
+		退出登录
+	</view>
+</view>

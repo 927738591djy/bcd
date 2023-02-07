@@ -1,0 +1,83 @@
+/* pages/sent/sent.wxss */
+page {
+	background-color: #ccc;
+	padding-bottom:100rpx;
+}
+
+.sent_box {
+	background-color: #fff;
+	border-radius: 30rpx;
+	margin: 30rpx 20rpx;
+	padding: 10rpx;
+}
+
+.van-notice-bar__wrap {
+	height: 0;
+	font-size: 30rpx;
+}
+
+.van-notice-bar {
+	height: 0;
+}
+
+.notice {
+	display: flex;
+	line-height: 50rpx;
+	padding: 20rpx 30rpx;
+	font-size: 35rpx;
+	font-weight: 600;
+}
+
+.notice_blue {
+	background-color: #1296df;
+	height: 50rpx;
+	width: 8rpx;
+	margin-right: 20rpx;
+}
+
+.line {
+	/* height: 1rpx; */
+	border-bottom: 1rpx solid #f0efef;
+	margin-left: 30rpx;
+}
+
+.avatar_box {
+	display: flex;
+	margin: 20rpx;
+}
+
+.avatar image {
+	width: 80rpx;
+	height: 80rpx;
+	border-radius: 50%;
+}
+
+.faqi_order {
+	z-index: 23;
+	position: fixed;
+	width: 80vw;
+	left: 50%;
+	bottom: -10rpx;
+	transform: translate(-50%, -50%);
+	background-color: #1296df;
+	/* display: inline-block; */
+	border-radius: 30rpx;
+	text-align: center;
+	padding: 20rpx 0;
+	color: #fff;
+}
+
+.van-ellipsis{
+	font-size: 28rpx;
+}
+
+
+.van-cell{
+	align-items: center;
+}
+.van-dropdown-menu{
+	height: 30rpx !important;
+}
+.van-dropdown-menu--top-bottom{
+	height: 30rpx;
+}

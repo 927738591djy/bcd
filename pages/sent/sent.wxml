@@ -1,0 +1,132 @@
+<!--pages/sent/sent.wxml-->
+<view class="sent_container">
+
+	<view class="sent_box">
+		<view class="notice">
+			<view class="notice_blue"></view>
+			发货人信息
+		</view>
+		<view class="line"></view>
+		<van-cell-group>
+			<van-field readonly value="{{ sentman.consignee }}" label="发货人姓名" placeholder="发货人姓名" required />
+
+			<van-field readonly value="{{ sentman.consigneeMobile }}" label="发货人电话" placeholder="发货人电话" border="{{false}}" required />
+
+		</van-cell-group>
+
+	</view>
+
+	<view class="sent_box">
+		<view class="notice">
+			<view class="notice_blue"></view>
+			线路信息
+		</view>
+		<view class="line"></view>
+		<van-cell-group>
+			<van-cell required title="起始地" is-link bindtap="areaShow" value="选择起始地" />
+			<van-field bind:change="startPliceChange"  model:value="{{ shippingAddress }}" type="textarea" placeholder="请输入起始地详细信息" autosize custom-style="background-color:rgba(0,0,0,.07);min-height:150rpx;width:90%;margin:40rpx;" border="{{ false }}" />
+		</van-cell-group>
+
+		<van-cell-group>
+			<van-cell required title="目的地" is-link bindtap="mudiShow" value="选择目的" />
+			<van-field bind:change="EndPliceChange" model:value="{{ deliveryAddress }}" type="textarea" placeholder="请输入目的地详细信息" autosize custom-style="background-color:rgba(0,0,0,.07);min-height:150rpx;width:90%;margin:40rpx;" border="{{ false }}" />
+
+		</van-cell-group>
+
+	</view>
+
+
+
+	<view class="sent_box">
+		<view class="notice">
+			<view class="notice_blue"></view>
+			货物信息
+		</view>
+		<view class="line"></view>
+		<van-cell-group>
+
+			<van-field bind:change="goodsNameChange" model:value="{{ goodsName }}" label="货物名称" placeholder="货物名称" required />
+
+			<van-field bind:change="goodsWeightChange" model:value="{{ goodsWeight }}" label="货物重量(kg)" placeholder="货物重量" required />
+
+			<van-cell-group>
+				<van-cell required title="货物品类" style="display: flex; align-items: center;">
+					<van-dropdown-menu>
+						<van-dropdown-item model:value="{{ goodsType }}" options="{{ goodsInfo.goodsType }}" bind:change="goodsTypeValueChange" />
+					</van-dropdown-menu>
+				</van-cell>
+			</van-cell-group>
+
+			<van-field wx:if="{{otherShow}}" model:value="{{ goodsTypeDesc }}" required label="其他" bind:change="otherGoodsTypeChange" placeholder="其他说明" />
+
+
+			<van-field bind:change="goodsRemarkChange" model:value="{{ goodsRemark }}" label="备注信息" placeholder="备注信息" />
+
+			<van-cell title="货物图片" border="{{false}}" required>
+				<van-uploader bind:delete="delete" max-count='1' file-list="{{ goodsInfo.fileList }}" bind:after-read="afterRead" />
+			</van-cell>
+		</van-cell-group>
+	</view>
+
+	<view class="sent_box">
+		<view class="notice">
+			<view class="notice_blue"></view>
+			发货时间
+		</view>
+		<view class="line"></view>
+		<van-cell-group>
+			<van-field value="{{ expectStartTime }}" bindfocus="date" label="发出时间" placeholder="发出时间" required />
+
+			<van-field value="{{ expectEndTime }}" bindfocus="datetwoShow" label="期望到达时间" placeholder="期望到达时间" required border='{{false}}' />
+		</van-cell-group>
+
+	</view>
+
+
+	<view wx:if="{{sentman.consignorCompanyId}}" class="sent_box">
+		<view class="notice">
+			<view class="notice_blue"></view>
+			选择此订单的关联者
+		</view>
+		<view class="line"></view>
+
+		<view style="padding:10rpx 30rpx;">
+			<van-checkbox-group value="{{ result }}" bind:change="userOnChange">
+				<van-checkbox name="{{item.id}}" wx:for="{{relationUser}}">
+					<view style="display: flex; align-items: center;">
+						<image style="width: 100rpx; height: 100rpx;border-radius: 50%;margin:10rpx 30rpx;" src="{{item.avatar}}"></image>
+						<view style="margin-right: 50rpx;">{{item.nickName}}</view>
+						<view>{{item.consignorMobile}}</view>
+					</view>
+				</van-checkbox>
+			</van-checkbox-group>
+		</view>
+
+
+
+
+
+	</view>
+
+	<view class="faqi_order" bindtap="tosent">{{orderId?'编辑':'提交'}}</view>
+
+	<!-- 选择发货地点 -->
+	<van-popup custom-style="height: 60%;" position="bottom" show="{{ area_show }}" bind:close="onClose">
+		<van-area title="选择起始地" bind:confirm="areaconfirm" bind:cancel="onClose" area-list="{{ areaList }}" />
+	</van-popup>
+
+	<!-- 选择到达地点 -->
+	<van-popup custom-style="height: 60%;" position="bottom" show="{{ mudi_show }}" bind:close="onClose">
+		<van-area title="选择起始地" bind:confirm="mudiConfirm" bind:cancel="onClose" area-list="{{ areaList }}" />
+	</van-popup>
+
+	<!-- 选择发出时间 -->
+	<van-popup custom-style="height: 60%;" position="bottom" show="{{ time.date_show }}" bind:close="onClose">
+		<van-datetime-picker title="{{'选择完整时间'}}" type="datetime" value="{{ time.currentDate }}" min-date="{{ time.minDate }}" max-date="{{ time.maxDate }}" bind:cancel="onClose" bind:confirm="onConfirm" />
+	</van-popup>
+
+	<!-- 选择期望到达的时间 -->
+	<van-popup custom-style="height: 60%;" position="bottom" show="{{ time.datetwo_show }}" bind:close="onClose">
+		<van-datetime-picker title="{{'选择完整时间'}}" type="datetime" value="{{ time.currentDate }}" min-date="{{ time.minDate }}" max-date="{{ time.maxDate }}" bind:cancel="onClose" bind:confirm="onConfirmhope" />
+	</van-popup>
+</view>

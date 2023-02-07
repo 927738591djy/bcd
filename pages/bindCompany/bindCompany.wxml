@@ -1,0 +1,10 @@
+<!--pages/bindCompany/bindCompany.wxml-->
+<view class="my_box">
+	<van-cell-group>
+
+		<van-field label="公司邀请码" placeholder="请输入公司邀请码" model:value="{{inviteCode}}"></van-field>
+
+	</van-cell-group>
+
+	<view bindtap="bindCompany" style="margin-top: 20rpx; background-color: #1296df;text-align: center;border-radius: 30rpx;padding: 20rpx 0;">确认修改</view>
+</view>

@@ -1,0 +1,76 @@
+/* pages/process/process.wxss */
+page {
+	background-color: #ccc;
+	padding-bottom: 200rpx;
+}
+.sent_box {
+	background-color: #fff;
+	border-radius: 30rpx;
+	margin: 30rpx 20rpx;
+	padding: 10rpx;
+}
+
+.van-notice-bar__wrap {
+	height: 0;
+	font-size: 30rpx;
+}
+
+.van-notice-bar {
+	height: 0;
+}
+
+.notice{
+	display: flex;
+	line-height: 50rpx;
+	padding: 20rpx 30rpx;
+	font-size: 35rpx;
+	font-weight: 600;
+}
+.notice_blue{
+	background-color: #1296df;
+	height: 50rpx;
+	width: 8rpx;
+	margin-right: 20rpx;
+}
+.line{
+	/* height: 1rpx; */
+	border-bottom: 1rpx solid #f0efef;
+	margin-left:30rpx; 
+}
+.faqi_order {
+	position: fixed;
+	width: 80vw;
+	left: 50%;
+	bottom: -10rpx;
+	transform: translate(-50%, -50%);
+	background-color:#1296df;
+	/* display: inline-block; */
+	border-radius: 30rpx;
+	text-align: center;
+	padding: 20rpx 0;
+	color: #fff;
+}
+.mark{
+	font-size: 30rpx;
+	position: absolute;
+	right: 0;
+	top:0rpx;
+	z-index: 999;
+	border: 10rpx solid #1296df;
+	width: 150rpx;
+	height: 150rpx;
+	text-align: center;
+	line-height: 150rpx;
+	border-radius: 50%;
+	transform: rotate(45deg);
+}
+.avatar{
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+}
+.swiper_user{
+	display: flex;
+	margin: 8rpx;
+	align-items: center;
+}

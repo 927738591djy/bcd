@@ -1,0 +1,15 @@
+/* pages/bindCompany/bindCompany.wxss */
+page{
+	background-color: #ccc;
+	display: flex;
+	justify-content: center;
+	padding: 20rpx 0;
+}
+.my_box{
+	background-color: #fff;
+	border-radius:10rpx;
+	width: 90%;
+	border-radius: 40rpx;
+	padding: 20rpx;
+	min-height: 350rpx;
+}

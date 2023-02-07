@@ -1,0 +1,47 @@
+<!--pages/user/user.wxml-->
+<view class="my_box">
+	<van-cell-group>
+		<van-cell is-link title="头像" bindtap="show" />
+
+		<van-field label="姓名" model:value="{{ nickName}}"></van-field>
+
+		<!-- <van-cell is-link title="密码" bindtap="passwordShow" border="{{false}}"></van-cell> -->
+	</van-cell-group>
+
+	<view bindtap="updateUserInfo" style="margin-top: 20rpx; background-color: #1296df;text-align: center;border-radius: 30rpx;padding: 20rpx 0;">确认修改</view>
+</view>
+
+<!-- 图标位置 -->
+<van-popup round show="{{ show }}" close-icon-position="top-left" position="bottom" custom-style="height: 30%;padding:50rpx;text-align:center;" bind:close="onClose">
+	<van-uploader bind:delete="delete" upload-text="{{'上传头像'}}" file-list="{{ fileList }}" max-count="1" bind:after-read="afterRead">
+	</van-uploader>
+
+	<view class="quxiao" style="background-color: red;" bindtap="closePopup">确定</view>
+	<view class="quxiao" bindtap="onClose">取消</view>
+</van-popup>
+
+<!-- <van-popup round show="{{ name_show }}" close-icon-position="top-left" position="center" custom-style="padding20rpx;width:80%;" bind:close="onClose">
+	<view style="padding: 30rpx;">
+		<van-field model:value="{{ nickName }}" placeholder="请输入姓名" bind:change="onChange" />
+	</view>
+	<view class="btn_box">
+		<view bindtap="onClose">取消</view>
+		<view class="btn_queding">确定</view>
+	</view>
+</van-popup> -->
+
+
+
+<!-- <van-popup round show="{{ phone_show }}" close-icon-position="top-left" position="center" custom-style="padding20rpx;width:80%;" bind:close="onClose">
+	<view style="padding: 50rpx;">
+		<view class="phone_box">
+			<view style="margin-bottom:20rpx;">更换当前绑定的手机号？</view>
+			<view class="phone_text">当前绑定的手机号为：</view>
+			<view class="phone_text">17765****94</view>
+		</view>
+	</view>
+	<view class="btn_box">
+		<view bindtap="onClose">取消</view>
+		<view class="btn_queding">确定</view>
+	</view>
+</van-popup> -->

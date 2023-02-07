@@ -1,0 +1,26 @@
+<!--pages/inviteCompany/inviteCompany.wxml-->
+<view class="sent_box">
+	<van-cell-group>
+		<van-field label="添加成员手机" placeholder="添加成员手机" model:value="{{value}}"></van-field>
+	</van-cell-group>
+
+	<view bindtap="inviteCompany" style="margin-top: 20rpx; background-color: #1296df;text-align: center;border-radius: 30rpx;padding: 20rpx 0;">确认添加</view>
+</view>
+
+<view class="sent_box">
+	<view class="notice">
+		<view class="notice_blue"></view>
+		删除添加的成员
+	</view>
+	<view class="line"></view>
+
+	<van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" wx:for="{{companyList}}" bind:close="onClose">
+		<view class="swiper_user">
+			<view style="padding: 30rpx 0;">{{item.inviteMobile}}</view>
+		</view>
+		<view  data-set="{{item.id}}" bindtap="delete" style="color: red;margin: 30rpx;" slot="right">删除</view>
+	</van-swipe-cell>
+
+	<van-dialog title="确认删除该成员" bind:confirm="confirmDelete" show-cancel-button show="{{ dialogShow }}" id="van-dialog" />
+
+</view>

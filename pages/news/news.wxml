@@ -1,0 +1,27 @@
+<!--pages/news/news.wxml-->
+<!-- 消息或者公告页面 -->
+<view class="news_container">
+
+	<view wx:if="{{type=='01'}}" class="news_box" wx:for="{{newsList}}" data-set="{{item.id}}" bindtap="toNewsDetail" data-type="{{type}}">
+	<view catchtap="removeNews" data-type="{{type}}" data-set="{{item.id}}" class="delete">X</view>
+		<view style="display: flex;flex-direction: column;justify-content: space-between;">
+			<view class="title">{{item.title}}</view>
+			<view class="time">{{item.startTime}}</view>
+		</view>
+		<image class="news_image" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+	</view>
+
+
+	<view wx:if="{{type=='02'}}" wx:for="{{newsList}}" class="news_box" bindtap="toNewsDetail" data-set="{{item.id}}" data-type="{{type}}">
+		<view catchtap="removeNews" data-type="{{type}}" data-set="{{item.id}}"  class="delete">X</view>
+		<view style="display: flex;flex-direction: column;justify-content: space-between;">
+			<view class="title">{{item.title}}</view>
+			<view class="time">{{item.startTime}}</view>
+		</view>
+		<image class="news_image" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+	</view>
+
+	<van-dialog   title="确认删除该通知？"  bind:confirm="remove"  show-cancel-button show="{{ removeShow }}" id="van-dialog" />
+
+	<view wx:if="{{messageNullShow}}" class="news_null">暂无其他消息或者公告~</view>
+</view>

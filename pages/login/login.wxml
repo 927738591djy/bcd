@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+<image class="icon" src="../../static/img/huang.png"></image>
+<view class="title">百车达管理</view>
+<view class="text">时刻查看您的货物踪迹~</view>
+
+<button bindtap="getUserInfo">开启授权登录</button>
+
+</view>

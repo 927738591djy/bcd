@@ -1,0 +1,78 @@
+{
+	"requiredPrivateInfos": [
+		"getLocation"
+	],
+	"permission": {
+		"scope.userLocation": {
+			"desc": "你的位置信息将用于小程序位置接口的效果展示"
+		}
+	},
+	"pages": [
+		"pages/index/index",
+		"pages/my/my",
+		"pages/cargo/cargo",
+		"pages/order/order",
+		"pages/sent/sent",
+		"pages/user/user",
+		"pages/process/process",
+		"pages/order-list/order-list",
+		"pages/bindCompany/bindCompany",
+		"pages/news/news",
+		"pages/newsDetail/newDetail",
+		"pages/inviteCompany/inviteCompany"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "Weixin",
+		"navigationBarTextStyle": "black"
+	},
+	"sitemapLocation": "sitemap.json",
+	"usingComponents": {
+		"van-button": "./miniprogram_npm/@vant/weapp/button/index",
+		"van-popup": "./miniprogram_npm/@vant/weapp/popup/index",
+		"van-steps": "./miniprogram_npm/@vant/weapp/steps/index",
+		"van-tab": "./miniprogram_npm/@vant/weapp/tab/index",
+		"van-tabs": "./miniprogram_npm/@vant/weapp/tabs/index",
+		"van-dialog": "./miniprogram_npm/@vant/weapp/dialog/index",
+		"van-search": "./miniprogram_npm/@vant/weapp/search/index",
+		"van-notice-bar": "./miniprogram_npm/@vant/weapp/notice-bar/index",
+		"van-field": "./miniprogram_npm/@vant/weapp/field/index",
+		"van-area": "./miniprogram_npm/@vant/weapp/area/index",
+		"van-icon": "./miniprogram_npm/@vant/weapp/icon/index",
+		"van-cell": "./miniprogram_npm/@vant/weapp/cell/index",
+		"van-grid": "./miniprogram_npm/@vant/weapp/grid/index",
+		"van-grid-item": "./miniprogram_npm/@vant/weapp/grid-item/index",
+		"van-uploader": "./miniprogram_npm/@vant/weapp/uploader/index",
+		"van-rate": "./miniprogram_npm/@vant/weapp/rate/index",
+		"van-datetime-picker": "./miniprogram_npm/@vant/weapp/datetime-picker/index",
+		"van-dropdown-menu": "./miniprogram_npm/@vant/weapp/dropdown-menu/index",
+		"van-dropdown-item": "./miniprogram_npm/@vant/weapp/dropdown-item/index",
+		"van-checkbox": "./miniprogram_npm/@vant/weapp/checkbox/index",
+		"van-checkbox-group": "./miniprogram_npm/@vant/weapp/checkbox-group/index",
+		"van-swipe-cell": "./miniprogram_npm/@vant/weapp/swipe-cell/index"
+	},
+	"tabBar": {
+		"selectedColor": "#1296db",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "首页",
+				"iconPath": "./static/img/index.png",
+				"selectedIconPath": "./static/img/index_select.png"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"text": "订单",
+				"iconPath": "./static/img/order.png",
+				"selectedIconPath": "./static/img/order_select.png"
+			},
+			{
+				"pagePath": "pages/my/my",
+				"text": "我的",
+				"iconPath": "./static/img/my.png",
+				"selectedIconPath": "./static/img/my_select.png"
+			}
+		]
+	}
+}

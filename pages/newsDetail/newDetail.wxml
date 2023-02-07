@@ -1,0 +1,9 @@
+<!--pages/newsDetail/newDetail.wxml-->
+<view class="newsDetail_container">
+	<view class="text">
+		<view class="title">{{detail.title}}</view>
+		<view class="time">{{detail.startTime}}</view>
+	</view>
+	<image class="image" src="https://img.yzcdn.cn/vant/cat.jpeg"></image>
+	<rich-text>{{detail.content}}</rich-text>
+</view>
