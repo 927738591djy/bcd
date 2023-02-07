@@ -151,7 +151,7 @@ Page({
       companyPhone:wx.getStorageSync('mobile')
     })
     console.log(this.data.companyPhone);
-		if (this.data.consignorCompanyId !== 'null' && this.data.consignorCompanyId !== undefined) {
+		if (this.data.consignorCompanyId !== 'null' && this.data.consignorCompanyId !== undefined && this.data.consignorCompanyId !== '') {
 			this.searchCompanyDetail()
 		} else {
 			this.setData({
